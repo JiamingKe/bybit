@@ -306,6 +306,7 @@ func (c *Client) postJSON(path string, body []byte, dst interface{}) error {
 		return err
 	}
 	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("referer", "Pi000273")
 
 	if err := c.Request(req, &dst); err != nil {
 		return err
@@ -336,6 +337,7 @@ func (c *Client) postV5JSON(path string, body []byte, dst interface{}) error {
 	req.Header.Set("X-BAPI-API-KEY", c.key)
 	req.Header.Set("X-BAPI-TIMESTAMP", strconv.FormatInt(timestamp, 10))
 	req.Header.Set("X-BAPI-SIGN", sign)
+	req.Header.Set("referer", "Pi000273")
 
 	if err := c.Request(req, &dst); err != nil {
 		return err
@@ -362,6 +364,7 @@ func (c *Client) postForm(path string, body url.Values, dst interface{}) error {
 		return err
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("referer", "Pi000273")
 	if err != nil {
 		return err
 	}
